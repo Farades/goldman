@@ -1,7 +1,7 @@
-package ru.entel.objects.common;
+package ru.entel.abstracts;
 
-import ru.entel.objects.game.enums.MovingDirection;
-import ru.entel.objects.game.interfaces.MovingObject;
+import ru.entel.enums.MovingDirection;
+import ru.entel.interfaces.MovingObject;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package ru.entel.objects.game.enums;
+package ru.entel.enums;
 
 import java.io.Serializable;
 

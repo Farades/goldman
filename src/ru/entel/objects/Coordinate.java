@@ -1,4 +1,4 @@
-package ru.entel.objects.common;
+package ru.entel.objects;
 
 /**
  * Created by farades on 03.04.2015.

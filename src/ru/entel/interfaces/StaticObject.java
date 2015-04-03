@@ -1,7 +1,7 @@
-package ru.entel.objects.game.interfaces;
+package ru.entel.interfaces;
 
-import ru.entel.objects.common.Coordinate;
-import ru.entel.objects.game.enums.GameObjectType;
+import ru.entel.objects.Coordinate;
+import ru.entel.enums.GameObjectType;
 
 import javax.swing.*;
 

@@ -1,7 +1,8 @@
-package ru.entel.objects.common;
+package ru.entel.abstracts;
 
-import ru.entel.objects.game.enums.GameObjectType;
-import ru.entel.objects.game.interfaces.StaticObject;
+import ru.entel.objects.Coordinate;
+import ru.entel.enums.GameObjectType;
+import ru.entel.interfaces.StaticObject;
 
 import javax.swing.*;
 
@@ -22,7 +23,12 @@ public abstract class AbstractGameObject implements StaticObject {
         this.icon = currentIcon;
     }
 
-    protected ImageIcon getImageIcon(String path) {
+    @Override
+    public ImageIcon getIcon() {
+        return icon;
+    }
+
+    protected ImageIcon getImageIcon(String path){
         return new ImageIcon(getClass().getResource(path));
     }
 
