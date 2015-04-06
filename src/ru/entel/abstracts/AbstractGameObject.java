@@ -13,7 +13,7 @@ public abstract class AbstractGameObject implements StaticObject {
     private GameObjectType type;
     private Coordinate coordinate;
 
-    private ImageIcon icon = getImageIcon("ru/entel/images/noicon.png");
+    private ImageIcon icon = getImageIcon("/ru/entel/images/noicon.png");
 
     public AbstractGameObject() {
 

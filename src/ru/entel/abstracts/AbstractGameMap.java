@@ -1,8 +1,9 @@
-package ru.entel.objects;
+package ru.entel.abstracts;
 
 import ru.entel.abstracts.AbstractGameObject;
 import ru.entel.enums.GameObjectType;
 import ru.entel.interfaces.GameMap;
+import ru.entel.objects.Coordinate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,10 +18,22 @@ public abstract class AbstractGameMap implements GameMap, Serializable {
     private int width;
     private int height;
     private int timeLimit;
-    private boolean isExitExist;
-    private boolean isGoldManExist;
+    private String name;
+    private boolean exitExist;
+    private boolean goldManExist;
     private HashMap<Coordinate, AbstractGameObject> gameObjects = new HashMap<Coordinate, AbstractGameObject>();
     private EnumMap<GameObjectType, ArrayList<AbstractGameObject>> typeObjects = new EnumMap<GameObjectType, ArrayList<AbstractGameObject>>(GameObjectType.class);
+
+    public void addGameObject(AbstractGameObject gameObject) {
+        ArrayList<AbstractGameObject> tmpList = typeObjects.get(gameObject.getType());
+        if (tmpList == null) {
+            tmpList = new ArrayList<AbstractGameObject>();
+        }
+        tmpList.add(gameObject);
+
+        gameObjects.put(gameObject.getCoordinate(), gameObject);
+        typeObjects.put(gameObject.getType(), tmpList);
+    }
 
     @Override
     public int getHeight() {
@@ -54,8 +67,32 @@ public abstract class AbstractGameMap implements GameMap, Serializable {
         return (firstObject.getType().getIndexPriority() > secondObject.getType().getIndexPriority()) ? firstObject : secondObject; // сокращенная запись условия if: если первый объект имеет больший приоритет - вернуть его, иначе вернуть второй объект
     }
 
+    public boolean isExitExist() {
+        return exitExist;
+    }
+
+    public void setExitExist(boolean isExitExist) {
+        this.exitExist = isExitExist;
+    }
+
+    public boolean isGoldManExist() {
+        return goldManExist;
+    }
+
+    public void setGoldManExist(boolean isGoldManExist) {
+        this.goldManExist = isGoldManExist;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public boolean isValidMap() {
-        return isGoldManExist && isExitExist; // если есть и вход и выход - карта валидна
+        return isGoldManExist() && isExitExist(); // если есть и вход и выход - карта валидна
     }
 
     public ArrayList<AbstractGameObject> getList(GameObjectType type) {
