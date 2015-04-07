@@ -14,7 +14,7 @@ public class FrameMainMenu extends JFrame {
     javax.swing.JPanel jpnlMainMenu;
 
     private FrameStat frameStat = new FrameStat();
-    private FrameGame frameGame = new FrameGame();
+    private FrameGame frameGame;
     private FrameSavedGames frameSavedGames = new FrameSavedGames();
 
     public FrameMainMenu() {
@@ -115,6 +115,7 @@ public class FrameMainMenu extends JFrame {
     }
 
     private void jbtnNewGameActionPerformed(java.awt.event.ActionEvent evt) {
+        frameGame = new FrameGame();
         frameGame.showFrame(this);
     }
 

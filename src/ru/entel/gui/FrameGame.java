@@ -1,5 +1,8 @@
 package ru.entel.gui;
 
+import ru.entel.interfaces.GameMap;
+import ru.entel.objects.maps.FSGameMap;
+
 import java.awt.event.ActionListener;
 
 /**
@@ -8,7 +11,7 @@ import java.awt.event.ActionListener;
  */
 public class FrameGame extends BaseChildFrame implements ActionListener {
 
-
+    private GameMap gameMap = new FSGameMap();
 
     /**
      * Creates new form FrameGame
@@ -16,8 +19,8 @@ public class FrameGame extends BaseChildFrame implements ActionListener {
     public FrameGame() {
 
         initComponents();
-
-
+        gameMap.loadMap("game.map");
+        System.out.println("Map loaded... Ok!");
     }
 
     /**

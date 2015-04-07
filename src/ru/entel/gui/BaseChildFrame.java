@@ -15,6 +15,10 @@ public abstract class BaseChildFrame extends JFrame {
         setCloseOperation();
     }
 
+    public JFrame getParentFrame() {
+        return parentFrame;
+    }
+
     protected void showFrame(JFrame parent) {
         this.parentFrame = parent;
         parent.setVisible(false);
